@@ -270,7 +270,7 @@ void plotting(const std::string& type1, double freq1, double amp1,
 
     subplot(3, 3, 4);
     plot(x, reconstructed);
-    title("Rekonstrukcja z IDFT");
+    title("IDFT");
 
     subplot(3, 3, 5);
     plot(x, filtered);
@@ -286,7 +286,7 @@ void plotting(const std::string& type1, double freq1, double amp1,
 
     subplot(3, 3, 8);
     plot(x, thresholded);
-    title("Progowanie");
+    title("Prog");
 
     show();
 
