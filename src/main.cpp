@@ -17,12 +17,12 @@ std::vector<double> operator*(const std::vector<double>& vec, double scalar) {
     return result;
 }
 
-// Operator do mnozenia skalar przez wektor (komutatywnosc)
+// Operator do mnozenia skalar przez wektor
 std::vector<double> operator*(double scalar, const std::vector<double>& vec) {
-    return vec * scalar; // reuse the other overload
+    return vec * scalar; 
 }
 
-// --- Generowanie sygnalow ---
+//Generowanie sygnalow
 vector<double> generate_sine(double freq, double t_start, double t_end, size_t num_samples) {
     vector<double> x = linspace(t_start, t_end, num_samples);
     vector<double> y(num_samples);
@@ -112,14 +112,12 @@ vector<double> computeIDFT(const DFTResult& dft) {
             double angle = 2.0 * M_PI * k * n / N;
             sum += dft.real[k] * cos(angle) - dft.imag[k] * sin(angle); //skladanie spowrotem sygnalu z dft
         }
-
-        //nie wiem po chuja to ale chat kaze bo bez tego bedzie rozmazane czy cos(pozniej doczytam)
         signal[n] = sum / N;
     }
     return signal;
 }
 
-// --- Wizualizacja DFT (amplituda) ---
+//Wizualizacja DFT (amplituda)
 
 void plotDFT(const DFTResult& dft) {
     vector<double> amplitudes(dft.real.size());
@@ -187,15 +185,15 @@ vector<vector<double>> Filter2D(const vector<vector<double>>& signal, const vect
     return result;
 }
 
-// --- Main ---
+//Main
 void plotting(const std::string& type1, double freq1, double amp1,
               const std::string& type2, double freq2, double amp2,
               double t_start, double t_end, size_t num_samples,
-              double threshold)  // <--- dodane 
+              double threshold)
 {
 
     figure();
-    // Generowanie sygnalu
+    //Generowanie sygnalu
     vector<double> x = linspace(t_start, t_end, num_samples);
     vector<double> y1, y2;
 
