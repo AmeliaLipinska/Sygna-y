@@ -52,15 +52,23 @@ PYBIND11_MODULE(signals, m) {
         py::arg("kernel"),
         "Filtracja sygnalu 1D za pomoca jądra filtrującego");
 
+    m.def("threshold", &threshold_signal,
+        py::arg("signal"),
+        py::arg("threshold"),
+        "Zwraca sygnal progowany: wartosci > prog to 1.0, reszta 0.0");
+
     m.def("filter_2D", &Filter2D,
         py::arg("signal"),
         py::arg("filter"),
         "Filtracja sygnalu 2D za pomoca jądra filtrującego");
 
+
     m.def("run", [](const std::string& type1, double freq1, double amp1,
         const std::string& type2, double freq2, double amp2,
-        double t_start, double t_end, size_t num_samples) {
-            return plotting(type1, freq1, amp1, type2, freq2, amp2, t_start, t_end, num_samples);
+        double t_start, double t_end, size_t num_samples,
+        double threshold) {
+            return plotting(type1, freq1, amp1, type2, freq2, amp2, t_start, t_end, num_samples, threshold);
         });
+
 
 }

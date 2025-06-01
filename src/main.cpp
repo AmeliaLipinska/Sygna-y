@@ -149,6 +149,14 @@ vector<double> filter_1D(const vector<double>& signal, const vector<double>& ker
     }
     return filtered;
 }
+vector<double> threshold_signal(const vector<double>& signal, double threshold) {
+    vector<double> result(signal.size());
+    for (size_t i = 0; i < signal.size(); ++i) {
+        result[i] = signal[i] > threshold ? 1.0 : 0.0;
+    }
+    return result;
+}
+
 //filtracja 2d
 vector<vector<double>> Filter2D(const vector<vector<double>>& signal, const vector<vector<double>>& filter) {
     int filterRows = filter.size();
@@ -181,8 +189,10 @@ vector<vector<double>> Filter2D(const vector<vector<double>>& signal, const vect
 
 // --- Main ---
 void plotting(const std::string& type1, double freq1, double amp1,
-    const std::string& type2, double freq2, double amp2,
-    double t_start, double t_end, size_t num_samples) {
+              const std::string& type2, double freq2, double amp2,
+              double t_start, double t_end, size_t num_samples,
+              double threshold)  // <--- dodane 
+{
 
     figure();
     // Generowanie sygnalu
@@ -230,6 +240,9 @@ void plotting(const std::string& type1, double freq1, double amp1,
     //filtracja 1D
     vector<double> kernel = { 0.25, 0.5, 0.25 };
     vector<double> filtered = filter_1D(reconstructed, kernel);
+    
+    //Prog
+    vector<double> thresholded = threshold_signal(reconstructed, threshold);
 
     //Filtracja 2D
     // 2D Filtracja: użycie y1 i y2 jako 2D sygnału
@@ -272,6 +285,11 @@ void plotting(const std::string& type1, double freq1, double amp1,
     subplot(3, 3, 7);
     imagesc(filtered2D);
     title("2D");
+
+    subplot(3, 3, 8);
+    plot(x, thresholded);
+    title("Progowanie");
+
     show();
 
 }

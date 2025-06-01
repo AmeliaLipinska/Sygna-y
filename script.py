@@ -39,12 +39,15 @@ def main():
             t_start = float(input("Podaj czas startowy: "))
             t_end = float(input("Podaj czas koncowy: "))
             num_samples = int(input("Podaj ilosc probek: "))
+            threshold = float(input("Podaj prog: "))
+
             break
         except ValueError:
             print("Zla wartosc, wpisz ponownie.")
 
 
-    signals.run(type1, freq1, amp1, type2, freq2, amp2, t_start, t_end, num_samples)
+    signals.run(type1, freq1, amp1, type2, freq2, amp2, t_start, t_end, num_samples, threshold)
+
 
 if __name__ == "__main__":
     main()
