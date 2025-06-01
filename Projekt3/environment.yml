@@ -1,0 +1,12 @@
+name: sygnalytest_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pytest
+  - setuptools
+  - wheel
+  - scikit-build-core

@@ -1,0 +1,20 @@
+# Build folders
+/build/
+/bin/
+/lib/
+/out/
+
+# Visual Studio files
+.vs
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# vcpkg installed packages (optional, usually heavy and rebuilt)
+vcpkg_installed/
+
+# Ignore conda env if it’s inside project (optional)
+envs/sygnalytest_env/

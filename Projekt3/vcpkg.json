@@ -1,0 +1,14 @@
+{
+  "name": "sygnalytest",
+  "version-string": "0.1.0",
+  "dependencies": [
+    "fftw3",
+    "libjpeg-turbo",
+    "zlib",
+    "lapack",
+    "tiff",
+    "libpng",
+    "matplotplusplus",
+    "pybind11"
+  ]
+}
