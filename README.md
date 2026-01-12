@@ -5,7 +5,7 @@ Autorki:
 
 * Amelia Lipińska 203721
 
-  
+![Program](sygnalyzdj.jpg)
  
 
 Co zrobić aby projekt się otworzył - instrukcja:
